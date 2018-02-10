@@ -26,17 +26,17 @@ interface Member {
 
     function setCoins(int $coins);
 
-    function addCoins(int $coins);
+//    function addCoins(int $coins);
 
-    function withdrawCoins(int $coins);
+//    function withdrawCoins(int $coins);
 
     function getXp(): int;
 
     function setXp(int $xp);
 
-    function addXp(int $xp);
+//    function addXp(int $xp);
 
-    function withdrawXp(int $xp);
+//    function withdrawXp(int $xp);
 
     function isRegistered(): bool;
 
@@ -49,9 +49,9 @@ interface Member {
     //TODO change to Friend class
     function getFriends(): array;
 
-    function addFriend($friend);
+//    function addFriend($friend);
 
-    function removeFriend($friend);
+//    function removeFriend($friend);
 
     function getPasswordHash(): string;
 
