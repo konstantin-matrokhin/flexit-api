@@ -4,15 +4,22 @@
 namespace Kvlt\Flexit\Entity;
 
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity @ORM\Table(name="players")
+ */
 class FlexitMember implements Member {
 
     /**
      * @var int
+     * @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue
      */
     private $id;
 
     /**
      * @var string
+     * @ORM\Column(type="string", length=32)
      */
     private $name;
 
