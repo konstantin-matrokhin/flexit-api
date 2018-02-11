@@ -7,7 +7,7 @@ namespace Kvlt\Flexit\DataAccess;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Exception;
-use Kvlt\Flexit\Entity\FlexitMember;
+use Kvlt\Flexit\Models\FlexitMember;
 use ReflectionClass;
 
 class Connection {

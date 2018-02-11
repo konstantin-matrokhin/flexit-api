@@ -1,25 +1,27 @@
 <?php
 
 
-namespace Kvlt\Flexit\Entity;
+namespace Kvlt\Flexit\Models;
 
 use Doctrine\ORM\Mapping\{
-    Entity, Table, OneToOne, Id, Column, GeneratedValue
+    Entity, Table, OneToOne, Id, Column, GeneratedValue, Embeddable, Embedded
 };
 
 /**
  * @Entity
  * @Table(name = "auth")
+ * @Embeddable
+ *
  */
 class AuthData {
 
     /**
      * @var int
      * @Id
-     * @GeneratedValue
      * @Column(type = "integer")
+     * @GeneratedValue(strategy = "IDENTITY")
      */
-    private $id;
+    private $idAuth;
 
     /**
      * @var string
@@ -29,123 +31,86 @@ class AuthData {
 
     /**
      * @var string
+     * @Column(type = "string", length = 32, unique = false, nullable = true)
      */
     private $email;
 
     /**
      * @var string
+     * @Column(type = "string", length = 16, unique = true, nullable = true)
      */
     private $phone;
 
     /**
      * @var bool
+     * @Column(type = "boolean", unique = false, nullable = false)
      */
-    private $emailConfirmed;
+    private $emailConfirmed = false;
 
     /**
      * @var bool
+     * @Column(type = "boolean", unique = false, nullable = false)
      */
-    private $phoneConfirmed;
+    private $phoneConfirmed = false;
 
     /**
      * @var string
+     * @Column(type = "string", unique = false, nullable = true)
      */
     private $registrationIp;
 
-    /**
-     * @return int
-     */
-    public function getId(): int {
-        return $this->id;
+    public function getIdAuth(): int {
+        return $this->idAuth;
     }
 
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void {
-        $this->id = $id;
+    public function setIdAuth(int $idAuth): void {
+        $this->idAuth = $idAuth;
     }
 
-    /**
-     * @return string
-     */
     public function getPassword(): string {
         return $this->password;
     }
 
-    /**
-     * @param string $password
-     */
     public function setPassword(string $password): void {
         $this->password = $password;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string {
         return $this->email;
     }
 
-    /**
-     * @param string $email
-     */
     public function setEmail(string $email): void {
         $this->email = $email;
     }
 
-    /**
-     * @return string
-     */
     public function getPhone(): string {
         return $this->phone;
     }
 
-    /**
-     * @param string $phone
-     */
     public function setPhone(string $phone): void {
         $this->phone = $phone;
     }
 
-    /**
-     * @return bool
-     */
     public function isEmailConfirmed(): bool {
         return $this->emailConfirmed;
     }
 
-    /**
-     * @param bool $emailConfirmed
-     */
     public function setEmailConfirmed(bool $emailConfirmed): void {
         $this->emailConfirmed = $emailConfirmed;
     }
 
-    /**
-     * @return bool
-     */
     public function isPhoneConfirmed(): bool {
         return $this->phoneConfirmed;
     }
 
-    /**
-     * @param bool $phoneConfirmed
-     */
     public function setPhoneConfirmed(bool $phoneConfirmed): void {
         $this->phoneConfirmed = $phoneConfirmed;
     }
 
-    /**
-     * @return string
-     */
     public function getRegistrationIp(): string {
         return $this->registrationIp;
     }
 
-    /**
-     * @param string $registrationIp
-     */
     public function setRegistrationIp(string $registrationIp): void {
         $this->registrationIp = $registrationIp;
     }
