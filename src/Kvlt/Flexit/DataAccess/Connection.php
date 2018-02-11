@@ -7,6 +7,8 @@ namespace Kvlt\Flexit\DataAccess;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Exception;
+use Kvlt\Flexit\Entity\FlexitMember;
+use ReflectionClass;
 
 class Connection {
 
@@ -19,11 +21,12 @@ class Connection {
 
     public function __construct() {
         try {
-//            $reflection = new ReflectionClass("FlexitMember");
-//            $classPath = $reflection->getFileName();
+            $member = new FlexitMember();
+            $reflection = new ReflectionClass($member);
+            $classPath = dirname($reflection->getFileName());
 
             $path = [
-                __DIR__ . "\..\Entity/"
+                $classPath
             ];
 
             $conn = [
