@@ -16,6 +16,7 @@ class Economy {
     /**
      * @var int
      * @Id
+     * @GeneratedValue
      * @Column(type = "integer")
      */
     private $id;

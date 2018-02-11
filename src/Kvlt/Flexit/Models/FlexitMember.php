@@ -29,14 +29,14 @@ class FlexitMember implements Member {
 
     /**
      * @var AuthData
-     * @Embedded(class = "AuthData", columnPrefix = false)
+     * @OneToOne(targetEntity = "AuthData", cascade = { "all" })
      */
     private $authData;
 
-//    /**
-//     * @var Economy
-//     * @OneToOne(targetEntity = "Economy", cascade = { "all" })
-//     */
+    /**
+     * @var Economy
+     * @OneToOne(targetEntity = "Economy", cascade = { "all" })
+     */
     private $economy;
 
     public function __construct() {

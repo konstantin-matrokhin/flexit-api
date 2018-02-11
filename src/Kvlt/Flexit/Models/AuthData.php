@@ -10,8 +10,6 @@ use Doctrine\ORM\Mapping\{
 /**
  * @Entity
  * @Table(name = "auth")
- * @Embeddable
- *
  */
 class AuthData {
 
@@ -21,7 +19,7 @@ class AuthData {
      * @Column(type = "integer")
      * @GeneratedValue(strategy = "IDENTITY")
      */
-    private $idAuth;
+    private $id;
 
     /**
      * @var string
@@ -59,12 +57,12 @@ class AuthData {
      */
     private $registrationIp;
 
-    public function getIdAuth(): int {
-        return $this->idAuth;
+    public function getId(): int {
+        return $this->id;
     }
 
-    public function setIdAuth(int $idAuth): void {
-        $this->idAuth = $idAuth;
+    public function setId(int $id): void {
+        $this->id = $id;
     }
 
     public function getPassword(): string {
