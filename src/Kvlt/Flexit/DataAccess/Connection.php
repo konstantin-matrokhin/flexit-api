@@ -33,7 +33,7 @@ class Connection {
                 "driver" => "pdo_mysql",
                 "user" => "root",
                 "password" => "",
-                "dbname" => "players"
+                "dbname" => "flexit"
             ];
 
             $config = Setup::createAnnotationMetadataConfiguration($path, self::DEV, null, null, false);

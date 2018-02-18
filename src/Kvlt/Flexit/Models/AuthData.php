@@ -4,7 +4,7 @@
 namespace Kvlt\Flexit\Models;
 
 use Doctrine\ORM\Mapping\{
-    Entity, Table, OneToOne, Id, Column, GeneratedValue, Embeddable, Embedded
+    Entity, Table, OneToOne, Id, Column, GeneratedValue, Embeddable, Embedded, JoinColumn
 };
 
 /**
@@ -18,6 +18,7 @@ class AuthData {
      * @Id
      * @Column(type = "integer")
      * @GeneratedValue(strategy = "IDENTITY")
+     * @JoinColumn(name="authData_id", referencedColumnName="id")
      */
     private $id;
 

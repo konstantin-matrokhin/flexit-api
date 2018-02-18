@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping\{
     Entity, Id, Annotation, Column, Table, OneToOne, GeneratedValue, JoinColumn, JoinTable, Embeddable,
     Embedded
 };
+use Kvlt\Flexit\DataAccess\Connection;
+use pocketmine\Player;
 
 /**
  * @Entity
@@ -18,6 +20,7 @@ class FlexitMember implements Member {
      * @var int
      * @Id
      * @Column(type = "integer")
+     * @GeneratedValue(strategy = "AUTO")
      */
     private $id;
 
@@ -29,7 +32,8 @@ class FlexitMember implements Member {
 
     /**
      * @var AuthData
-     * @OneToOne(targetEntity = "AuthData", cascade = { "all" })
+     * @OneToOne(targetEntity = "AuthData", cascade = { "persist" }, mappedBy = "players")
+     * @JoinColumn(name="authData_id", referencedColumnName="id")
      */
     private $authData;
 
@@ -39,8 +43,13 @@ class FlexitMember implements Member {
      */
     private $economy;
 
-    public function __construct() {
+    public function __construct(Player $player = null) {
         $this->authData = new AuthData();
+        $this->economy = new Economy();
+
+        if ($player != null) {
+
+        }
     }
 
     public function getId(): int {

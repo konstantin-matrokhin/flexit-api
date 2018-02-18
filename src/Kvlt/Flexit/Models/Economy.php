@@ -16,7 +16,7 @@ class Economy {
     /**
      * @var int
      * @Id
-     * @GeneratedValue
+     * @GeneratedValue(strategy = "IDENTITY")
      * @Column(type = "integer")
      */
     private $id;
@@ -25,19 +25,19 @@ class Economy {
      * @var float
      * @Column(type = "float")
      */
-    private $rubles;
+    private $rubles = 0;
 
     /**
      * @var int
      * @Column(type = "integer")
      */
-    private $coins;
+    private $coins = 0;
 
     /**
      * @var int
      * @Column(type = "integer")
      */
-    private $xp;
+    private $xp = 0;
 
     /**
      * @return int

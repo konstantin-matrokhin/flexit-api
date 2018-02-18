@@ -3,9 +3,6 @@
 
 namespace Kvlt\Flexit\Gui\Forms;
 
-
-use Kvlt\Flexit\Gui\GUI;
-
 class ModalWindow extends Window {
 
     private $id;

@@ -1,0 +1,4 @@
+name: FCore
+version: 0.2
+main: Kvlt\Flexit\Plugin
+load: STARTUP
